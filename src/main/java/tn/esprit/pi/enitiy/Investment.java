@@ -1,9 +1,6 @@
 package tn.esprit.pi.enitiy;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.util.Date;
@@ -17,9 +14,11 @@ import java.util.Date;
 public class Investment {
   @Id
   @GeneratedValue(strategy= GenerationType.IDENTITY)
-  long idPInvestment;
+  long idInvestment;
   Float inv_amount;
+  @Temporal(TemporalType.DATE)
   Date date_inevt;
-  Float income_by_day;
-
+  //Float income_by_day;
+  @ManyToOne(cascade = CascadeType.ALL)
+  Project project;
 }
