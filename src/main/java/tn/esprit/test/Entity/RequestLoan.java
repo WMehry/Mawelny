@@ -28,7 +28,7 @@ public class RequestLoan implements Serializable {
     @Lob
     byte[] garantor;
 
-
+//association
     @ManyToMany(mappedBy = "requestloans")
     Set<OfferLoan> offerloan;
 
